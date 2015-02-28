@@ -13,12 +13,17 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 
-class IndexController extends AbstractActionController
+class AccountController extends AbstractActionController
 {
-    public function indexAction()
+
+
+	public function indexAction()
     {
 
-        return new ViewModel();
+		$view = new ViewModel();
+
+
+		return $view;
     }
 
 	public function interviewAction()
