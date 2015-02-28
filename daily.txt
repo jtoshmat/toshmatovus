@@ -4,5 +4,4 @@ git remote set-url origin https://github.com/jtoshmat/toshmatovus.git
 
 /usr/local/zend/apache2/htdocs/toshmatovus/daily.txt
 
-
-Made repo private
+Auto commit to git
