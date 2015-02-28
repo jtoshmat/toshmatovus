@@ -3,3 +3,6 @@ To change the remote host
 git remote set-url origin https://github.com/jtoshmat/toshmatovus.git
 
 /usr/local/zend/apache2/htdocs/toshmatovus/daily.txt
+
+
+Feb 28 1:56 reverted once
