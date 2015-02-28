@@ -18,20 +18,9 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
 
-        return new ViewModel();
+		$this->layout('layout/layout.phtml');
+		return new ViewModel();
     }
 
-	public function interviewAction()
-	{
 
-
-		return new ViewModel();
-	}
-	public function testAction()
-	{
-
-
-
-		return new ViewModel();
-	}
 }

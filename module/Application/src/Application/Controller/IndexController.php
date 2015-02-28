@@ -18,7 +18,8 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
 
-        return new ViewModel();
+		//$this->layout('layout/default.phtml');
+		return new ViewModel();
     }
 
 	public function interviewAction()
@@ -31,6 +32,7 @@ class IndexController extends AbstractActionController
 	{
 
 
+		echo "application test";
 
 		return new ViewModel();
 	}

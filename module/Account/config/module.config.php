@@ -2,7 +2,7 @@
 	return array(
 		'controllers' => array(
 			'invokables' => array(
-				'Account\Controller\Index' => 'Account\Controller\IndexController',
+				'Account\Controller\Account' => 'Account\Controller\AccountController',
 			),
 		),
 		'router' => array(
@@ -12,7 +12,7 @@
 					'options' => array(
 						'route'    => '/account',
 						'defaults' => array(
-							'controller' => 'Account\Controller\Index',
+							'controller' => 'Account\Controller\Account',
 							'action'     => 'index',
 						),
 					),
@@ -21,13 +21,13 @@
 				'test' => array(
 					'type' => 'Zend\Mvc\Router\Http\Segment',
 					'options' => array(
-						'route'    => '/test[/:action]',
+						'route'    => '/account/test[/:action]',
 						'constraints' => array(
 							'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
 
 						),
 						'defaults' => array(
-							'controller' => 'Account\Controller\Index',
+							'controller' => 'Account\Controller\Account',
 							'action'     => 'test',
 						),
 					),
@@ -38,13 +38,13 @@
 				// new controllers and actions without needing to create a new
 				// module. Simply drop new controllers in, and you can access them
 				// using the path /account/:controller/:action
-				'account' => array(
+				'account2' => array(
 					'type'    => 'Literal',
 					'options' => array(
 						'route'    => '/account',
 						'defaults' => array(
 							'__NAMESPACE__' => 'Account\Controller',
-							'controller'    => 'Index',
+							'controller'    => 'Account',
 							'action'        => 'index',
 						),
 					),
@@ -63,7 +63,7 @@
 							),
 						),
 
-						'test2' => array(
+						'test2333' => array(
 							'type' => 'Zend\Mvc\Router\Http\Segment',
 							'options' => array(
 								'route'    => 'development[/:action]',
@@ -72,7 +72,7 @@
 
 								),
 								'defaults' => array(
-									'controller' => 'Account\Controller\Index',
+									'controller' => 'Account\Controller\Account',
 									'action'     => 'test',
 								),
 							),
@@ -107,7 +107,7 @@
 		),
 		'controllers' => array(
 			'invokables' => array(
-				'Account\Controller\Index' => 'Account\Controller\IndexController'
+				'Account\Controller\Account' => 'Account\Controller\AccountController'
 			),
 		),
 		'view_manager' => array(
@@ -125,6 +125,7 @@
 			'template_path_stack' => array(
 				__DIR__ . '/../view',
 			),
+
 		),
 		// Placeholder for console routes
 		'console' => array(
