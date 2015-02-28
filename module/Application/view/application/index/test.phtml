@@ -1,0 +1,25 @@
+<?php
+
+
+	class usa{
+
+
+		public function getState(state $state){
+			echo $state->setStateName('Iowa');
+		}
+	}
+
+	class state{
+		public function setStateName($name){
+			return $name;
+		}
+	}
+
+
+
+	$usa = new usa();
+	$state = new state();
+	$usa->getState($state);
+
+
+?>
