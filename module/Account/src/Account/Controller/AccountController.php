@@ -9,6 +9,8 @@
 
 namespace Account\Controller;
 
+use Account\Form\LoginForm;
+use Account\Model\LoginModel;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -26,17 +28,29 @@ class AccountController extends AbstractActionController
 		return $view;
     }
 
-	public function interviewAction()
-	{
-
-
-		return new ViewModel();
-	}
 	public function testAction()
 	{
-
-
-
 		return new ViewModel();
+	}
+
+	public function loginAction()
+	{
+		$form = new LoginForm('userLoginForm');
+		$request = $this->getRequest();
+
+		if ($request->isPost()) {
+			$loginModel = new LoginModel();
+			$ip = $request->getServer('REMOTE_ADDR');
+			$form->get('ip')->setAttribute('value',$ip);
+			$form->setInputFilter($loginModel->getInputFilter());
+			$form->setData($request->getPost());
+			if ($form->isValid()) {
+				//TODO create Model and connect to DB
+			}
+
+		}
+		return new ViewModel(array(
+			'form' => $form
+		));
 	}
 }
