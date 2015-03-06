@@ -1,8 +1,25 @@
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+<?php
+	$isUserLoggedIn= false;
+	if ($usersession['id']){
+		$isUserLoggedIn= true;
+	}
+
+?>
+<style type="text/css">
+	.userloggedin{
+		text-align: center;
+		color: #FF0000;
+		}
+</style>
+
 <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin-top:50px;" id="loginbox">
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<div class="panel-title">Sign In</div>
-			<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+			<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="<?php echo $this->url('user', array
+				('action'=>'forgotpassword'));?>">Forgot password?</a></div>
 		</div>
 
 		<div class="panel-body" style="padding-top:30px">
@@ -38,7 +55,12 @@
 				<div class="input-group">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="1" name="remember" id="login-remember"> Remember me
+							<?php
+
+
+									echo $this->formRow($form->get('rememberLogin')->setValue(1)) . "Remember my login";
+
+							?>
 						</label>
 					</div>
 				</div>
@@ -50,7 +72,14 @@
 					<div class="col-sm-12 controls">
 
 						<?php
+							$form->get('token')->setAttribute('value',$token);
+							echo $this->formRow($form->get('token'));
 							echo $this->formReset($form->get('reset'));
+							if ($isUserLoggedIn){
+								$form->get('submit')->setAttribute('disabled','disabled');
+								$form->get('submit')->setAttribute('title','Login is disabled');
+							}
+							$form->get('submit')->setAttribute('title','Click to login');
 							echo $this->formSubmit($form->get('submit'));
 							//@TODO Find solution to render the button in the view JT 2/27
 							//echo $this->formButton($form->get('facebook'));ß
@@ -67,10 +96,22 @@
 					<div class="col-md-12 control">
 						<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
 							Don't have an account!
-							<a onclick="$('#loginbox').hide(); $('#signupbox').show()" href="#">
+							<a href="#">
 								Sign Up Here
 							</a>
 						</div>
+
+						<?php if ($isUserLoggedIn):?>
+						<div class="alert userloggedin">You are already logged on, if you are not
+							<?php echo $usersession['fullname']?>, <br
+								/> please
+							click <a title="Click to log out" href="<?php echo $this->url('user', array
+							('action'=>'logout'));?>">here</a> to
+							logout
+						</div>
+						<?php endif; ?>
+
+
 					</div>
 				</div>
 			<?php
@@ -78,9 +119,6 @@
 			?>
 
 
-
 		</div>
 	</div>
 </div>
-
-

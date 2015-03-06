@@ -72,6 +72,26 @@
 					),
 				));
 
+
+				$inputFilter->add(array(
+					'name'     => 'token',
+					'required' => true,
+					'filters'  => array(
+						array('name' => 'StripTags'),
+						array('name' => 'StringTrim'),
+					),
+					'validators' => array(
+						array(
+							'name'    => 'StringLength',
+							'options' => array(
+								'encoding' => 'UTF-8',
+								'min'      => 20,
+								'max'      => 355,
+							),
+						),
+					),
+				));
+
 				$this->inputFilter = $inputFilter;
 			}
 

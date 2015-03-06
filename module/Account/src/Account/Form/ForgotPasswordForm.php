@@ -5,7 +5,7 @@
 	use Zend\Stdlib\Parameters;
 
 
-	class LoginForm extends Form
+	class ForgotPasswordForm extends Form
 	{
 		public function __construct($name = null)
 		{
@@ -23,31 +23,15 @@
 			));
 
 			$this->add(array(
-				'name' => 'password',
-				'type' =>'Password',
-				'attributes' => array(
-					'class' => 'form-control',
-					'required' => 'required',
-					'id' => 'password',
-					'placeholder' =>'Your password'
-				),
-			));
-
-			$this->add(array(
-				'name' => 'rememberLogin',
-				'type' =>'Checkbox',
-				'attributes' => array(
-					'class' => '',
-					'id' => 'rememberLogin',
-				),
-			));
-
-
-			$this->add(array(
 				'name' => 'token',
 				'type' =>'hidden',
 			));
 
+
+			$this->add(array(
+				'name' => 'url',
+				'type' =>'hidden',
+			));
 
 
 			$this->add(array(
@@ -58,7 +42,6 @@
 					'id' => 'IP'
 				),
 			));
-
 
 
 
@@ -77,7 +60,7 @@
 				'name' => 'submit',
 				'type' => 'Submit',
 				'attributes' => array(
-					'value' => 'Submit',
+					'value' => 'Send password to Email',
 					'id' => 'submitbutton',
 					'class' =>'btn btn-success'
 				),

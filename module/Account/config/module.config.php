@@ -15,6 +15,10 @@
 					'type' => 'Zend\Mvc\Router\Http\Literal',
 					'options' => array(
 						'route'    => '/account',
+						'constraints' => array(
+							'slash' => '[/]+*',
+
+						),
 						'defaults' => array(
 							'controller' => 'Account\Controller\Account',
 							'action'     => 'index',
@@ -33,7 +37,7 @@
 
 						'defaults' => array(
 							'controller' => 'Account\Controller\Account',
-							'action'     => 'test',
+							'action'     => 'index',
 						),
 					),
 				),

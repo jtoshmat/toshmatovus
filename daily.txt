@@ -5,3 +5,12 @@ git remote set-url origin https://github.com/jtoshmat/toshmatovus.git
 /usr/local/zend/apache2/htdocs/toshmatovus/daily.txt
 
 Auto commit to git
+
+
+
+http://stackoverflow.com/questions/22616515/how-add-custom-attribute-in-zend-framework-2-using-zend-from
+add custom angular attributes to ZF2 form element
+
+Create a MYSQL user and use it from PHP
+CREATE USER 'jon'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO 'jon'@'localhost';

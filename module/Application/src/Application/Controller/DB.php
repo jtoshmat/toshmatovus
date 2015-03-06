@@ -1,22 +1,26 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
+	namespace Application\Controller;
+	use Zend\Db\Adapter\Adapter;
+	use Zend\Mvc\Controller\AbstractActionController;
+	use Zend\Stdlib\ArrayObject;
+	use Zend\View\Model\ViewModel;
+	class DB extends AbstractActionController
+	{
+		public $conn;
+		public function __construct($uid='webselect', $pwd='%H56F09NGV@d(*&%^$JKLGKBJ^&(*YHJLK'){
+			$this->conn = new Adapter(array(
+				'driver' => 'Pdo_Mysql',
+				'hostname' =>'localhost',
+				'database' => 'toshmatovus',
+				'username' => $uid,
+				'password' => $pwd
+			));
+		}
 
-namespace Application\Controller;
+		public function query($sql, $parms=''){
+			$result = $this->conn->createStatement($sql, $parms);
+			return $result->execute();
+		}
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 
-class DB extends AbstractActionController
-{
-    public function indexAction()
-    {
-        echo "changed 12:32";
-        return new ViewModel();
-    }
-}
+	}
